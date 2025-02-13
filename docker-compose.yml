@@ -1,23 +1,23 @@
 services:
- mysql:
-  container_name: mysql
-  image: mysql:latest
-  environment:
-    - MYSQL_ROOT_PASSWORD=test@1234
-    - MYSQL_DATABASE=bankapp
-  networks:
-    - bankapp-network
-  volumes:
-    - mysql-data:/var/lib/mysql
-  ports:
-    - 3306:3306
-  restart: always
-  healthcheck:
-    test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-    interval: 60s
-    timeout: 30s
-    retries: 5
-    start_period: 30s
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=test@1234
+      - MYSQL_DATABASE=bankapp
+    networks:
+      - bankapp-network
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 60s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
   
   # phpmyadmin:
   #   image: phpmyadmin/phpmyadmin:latest
@@ -36,4 +36,3 @@ volumes:
   mysql-data:
 networks:
   mysqldb-network:
-
