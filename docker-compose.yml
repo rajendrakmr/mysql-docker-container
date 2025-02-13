@@ -19,18 +19,18 @@ services:
       retries: 3
       start_period: 30s
   
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    container_name: phpmyadmin
-    depends_on:
-      mysqldb:
-        condition: service_healthy
-    networks:
-      - mysqldb-network
-    environment:
-      PMA_HOST: mysqldb
-      MYSQL_ROOT_PASSWORD: test122
-    restart: always
+  # phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin:latest
+  #   container_name: phpmyadmin
+  #   depends_on:
+  #     mysqldb:
+  #       condition: service_healthy
+  #   networks:
+  #     - mysqldb-network
+  #   environment:
+  #     PMA_HOST: mysqldb
+  #     MYSQL_ROOT_PASSWORD: test122
+  #   restart: always
 
 volumes:
   mysql-data:
